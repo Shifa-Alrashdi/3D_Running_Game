@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+    public static Player institite;
     float speed = 5.5f;
+    public int score = 0;
+    //public TMP_Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (institite == null)
+            institite = this;
     }
 
     // Update is called once per frame
@@ -50,8 +56,9 @@ public class Player : MonoBehaviour
     if (collision.gameObject.tag == "coin")
         {
             Destroy(collision.gameObject);
-            print("collision");
+            score++;
+            UI.institite.scoreText.SetText("SCORE: " + score.ToString()) ;
+            //scoreText.text = "SCORE: " + score.ToString();
         }
-
-}
+    }
 }
