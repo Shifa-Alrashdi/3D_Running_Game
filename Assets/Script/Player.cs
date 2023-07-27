@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public static Player institite;
     float speed = 5.5f;
     public int score = 0;
+
+    Animator playerAnimator;
     //public TMP_Text scoreText;
 
     // Start is called before the first frame update
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
     {
         if (institite == null)
             institite = this;
+
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,28 +30,34 @@ public class Player : MonoBehaviour
         { 
              transform.position += transform.forward * speed * Time.deltaTime ;
         }*/
-        if ( Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += transform.forward * speed * Time.deltaTime;
-        }
-        //Right movement
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
 
-        }
-
-        //backword movement
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (UI.institite.isPlay == true)
         {
-            transform.position -= transform.forward * speed * Time.deltaTime;
-        }
+            playerAnimator.SetTrigger("idol to run");
 
-        //left movement
-        if ( Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= transform.right * speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.position += transform.forward * speed * Time.deltaTime;
+            }
+            //Right movement
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.position += transform.right * speed * Time.deltaTime;
 
+            }
+
+            //backword movement
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.position -= transform.forward * speed * Time.deltaTime;
+            }
+
+            //left movement
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.position -= transform.right * speed * Time.deltaTime;
+
+            }
         }
     }
 

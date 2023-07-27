@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
 
     float Timer = 0;
 
+    public bool isPlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,15 +23,16 @@ public class UI : MonoBehaviour
     void Update()
     {
         //scoreText.text = "SCORE: " + Player.institite.score.ToString();
+        if (isPlay == true)
+        {
+            Timer += Time.deltaTime;
 
-        Timer += Time.deltaTime;
-
-        timerText.SetText("Time: " + Timer.ToString("##"));
-
+            timerText.SetText("Time: " + Timer.ToString("##"));
+        }
     }
 
     public void StartGame()
     {
-        print("press button");
+        isPlay = true;
     }
 }
