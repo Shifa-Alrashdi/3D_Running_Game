@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     public int score = 0;
 
     Animator playerAnimator;
+
+    public AudioClip CoinIncrease, CoinDecrease;
+ 
+    AudioSource coinCollection;
     //public TMP_Text scoreText;
 
     // Start is called before the first frame update
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
             institite = this;
 
         playerAnimator = GetComponent<Animator>();
+        coinCollection = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -68,7 +73,23 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             score++;
             UI.institite.scoreText.SetText("SCORE: " + score.ToString()) ;
+
+            coinCollection.Stop();
+            coinCollection.clip = CoinIncrease;
+            coinCollection.Play();
             //scoreText.text = "SCORE: " + score.ToString();
         }
+    if (collision.gameObject.tag == "bomb")
+        {
+            Destroy(collision.gameObject);
+            score--;
+            UI.institite.scoreText.SetText("SCORE: " + score.ToString());
+
+            coinCollection.Stop();
+            coinCollection.clip = CoinDecrease;
+            coinCollection.Play();
+            //scoreText.text = "SCORE: " + score.ToString();
+        }
+
     }
 }
