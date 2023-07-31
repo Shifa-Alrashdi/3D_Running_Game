@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public AudioClip CoinIncrease, CoinDecrease;
  
     AudioSource coinCollection;
+
+    
     //public TMP_Text scoreText;
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
 
         playerAnimator = GetComponent<Animator>();
         coinCollection = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 transform.position += transform.forward * speed * Time.deltaTime;
+                
             }
             //Right movement
             if (Input.GetKey(KeyCode.RightArrow))
