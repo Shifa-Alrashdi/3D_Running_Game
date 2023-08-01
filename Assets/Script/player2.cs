@@ -5,12 +5,15 @@ using UnityEngine;
 public class player2 : MonoBehaviour
 {
     public static player2 institite;
-    float speed = 3.5f;
+    public float speed = 3.5f;
     public int score = 0;
+    public int live = 3;
 
     string[] road;
 
     Animator playerAnimator;
+
+    Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class player2 : MonoBehaviour
           institite = this;
 
          playerAnimator = GetComponent<Animator>();
+         rigidbody = GetComponent<Rigidbody>();
         //coinCollection = GetComponent<AudioSource>();
     }
 
@@ -41,12 +45,13 @@ public class player2 : MonoBehaviour
                 transform.position -= transform.right * speed * Time.deltaTime;
 
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (transform.position.y < 3.5f && Input.GetKey(KeyCode.UpArrow))
             {
-                transform.position += transform.up * speed * Time.deltaTime;
+                //transform.position += transform.up * speed * Time.deltaTime;
+                rigidbody.AddForce(Vector3.up * 0.1f, ForceMode.Impulse);
 
             }
-            speed = speed + 0.001f; ;
+            //speed = speed + 0.001f; ;
         }
        
     }
@@ -64,17 +69,21 @@ public class player2 : MonoBehaviour
             //scoreText.text = "SCORE: " + score.ToString();
             */
         }
-        if (collision.gameObject.tag == "bomb")
+        if (collision.gameObject.tag == "enemies")
         {
-            Destroy(collision.gameObject);
-            score--;
-            UI.institite.scoreText.SetText("SCORE: " + score.ToString());
+            //Destroy(collision.gameObject);
+            live--;
+            UI.institite.liveText.SetText("Live: " + live.ToString());
             /*
             coinCollection.Stop();
             coinCollection.clip = CoinDecrease;
             coinCollection.Play();
             //scoreText.text = "SCORE: " + score.ToString();
             */
+        }
+        if (live == 0)
+        { 
+        
         }
 
     }

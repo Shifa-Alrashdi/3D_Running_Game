@@ -5,11 +5,11 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    public TMP_Text scoreText, timerText;
+    public TMP_Text scoreText, timerText, liveText;
    
     public static UI institite;
 
-    float Timer = 0;
+    public float Timer = 0;
 
     public bool isPlay;
     // Start is called before the first frame update
