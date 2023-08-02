@@ -5,7 +5,7 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    public TMP_Text scoreText, timerText, liveText;
+    public TMP_Text scoreText, timerText, liveText, FinalScore;
    
     public static UI institite;
 

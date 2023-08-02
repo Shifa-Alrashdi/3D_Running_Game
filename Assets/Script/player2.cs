@@ -5,15 +5,19 @@ using UnityEngine;
 public class player2 : MonoBehaviour
 {
     public static player2 institite;
-    public float speed = 3.5f;
+    public float speed = 3;
     public int score = 0;
     public int live = 3;
-
+    public ParticleSystem effect;
     string[] road;
+    public GameObject player;
+    public AudioClip CoinIncrease, CoinDecrease, GameOver;
 
+    AudioSource coinCollection;
+    public GameObject heart;
     Animator playerAnimator;
-
-    Rigidbody rigidbody;
+    public GameOver gameover;
+    Rigidbody rigidbodyy;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +26,10 @@ public class player2 : MonoBehaviour
           institite = this;
 
          playerAnimator = GetComponent<Animator>();
-         rigidbody = GetComponent<Rigidbody>();
+         rigidbodyy = GetComponent<Rigidbody>();
+         coinCollection = GetComponent<AudioSource>();
         //coinCollection = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -31,6 +37,7 @@ public class player2 : MonoBehaviour
     {
         if (UI.institite.isPlay == true)
         {
+            effect.Play();
             playerAnimator.SetTrigger("idle to run");
             transform.position += transform.forward * speed * Time.deltaTime;
 
@@ -45,10 +52,10 @@ public class player2 : MonoBehaviour
                 transform.position -= transform.right * speed * Time.deltaTime;
 
             }
-            if (transform.position.y < 3.5f && Input.GetKey(KeyCode.UpArrow))
+            if (transform.position.y < 3 && Input.GetKey(KeyCode.UpArrow))
             {
                 //transform.position += transform.up * speed * Time.deltaTime;
-                rigidbody.AddForce(Vector3.up * 0.1f, ForceMode.Impulse);
+                rigidbodyy.AddForce(Vector3.up * 0.1f, ForceMode.Impulse);
 
             }
             //speed = speed + 0.001f; ;
@@ -62,29 +69,44 @@ public class player2 : MonoBehaviour
             Destroy(collision.gameObject);
             score++;
             UI.institite.scoreText.SetText("SCORE: " + score.ToString());
-            /*
+            
             coinCollection.Stop();
             coinCollection.clip = CoinIncrease;
             coinCollection.Play();
             //scoreText.text = "SCORE: " + score.ToString();
-            */
+            
         }
         if (collision.gameObject.tag == "enemies")
         {
             //Destroy(collision.gameObject);
             live--;
-            UI.institite.liveText.SetText("Live: " + live.ToString());
-            /*
+            UI.institite.liveText.SetText(": " + live.ToString());
+            
+            if (live > 0)
+        {
             coinCollection.Stop();
             coinCollection.clip = CoinDecrease;
             coinCollection.Play();
+        }
             //scoreText.text = "SCORE: " + score.ToString();
-            */
+             if (live == 0)
+        {
+            playerAnimator.SetTrigger("run to idle");
+            gameover.setup();
+            UI.institite.FinalScore.SetText("Your Score: " + score.ToString());
+            UI.institite.liveText.SetText(" ");
+            UI.institite.timerText.SetText(" ");
+            UI.institite.scoreText.SetText(" ");
+            heart.SetActive(false);
+            UI.institite.isPlay = false;
+            coinCollection.Stop();
+            coinCollection.clip = GameOver;
+            coinCollection.Play();
+                   
         }
-        if (live == 0)
-        { 
+        }
         
-        }
+       
 
     }
 }

@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class roadDestrory : MonoBehaviour
 {
-    public GameObject road;
+    
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("destroyRoad", 8);
+        Invoke("destroyRoad", 60);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void destroyRoad()
+    public void destroyRoad()
     {
+        
         if (UI.institite.isPlay == true)
         {
-            Destroy(road);
+           
+                Destroy(gameObject);
+            
         }
     }
 }
+
