@@ -1,3 +1,4 @@
+//Script to create random road
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,14 @@ using UnityEngine;
 public class roadManager : MonoBehaviour
 {
 
-    
+    //intiate variable
     public GameObject[] road;
-    
     public int Z =18;
  
     // Start is called before the first frame update
     void Start()
     {
+        //Call function that create the road
         InvokeRepeating("createroad", 4, 1);
     }
 
@@ -21,6 +22,7 @@ public class roadManager : MonoBehaviour
     {
         
     }
+    //Function to create random road
     void createroad()
     {   
         if (UI.institite.isPlay == true)

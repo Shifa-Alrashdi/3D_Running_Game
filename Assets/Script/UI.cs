@@ -6,12 +6,10 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     public TMP_Text scoreText, timerText, liveText, FinalScore;
-   
     public static UI institite;
-
     public float Timer = 0;
-
     public bool isPlay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +20,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //scoreText.text = "SCORE: " + Player.institite.score.ToString();
+        //Increase the time
         if (isPlay == true)
         {
             Timer += Time.deltaTime;
@@ -31,6 +29,7 @@ public class UI : MonoBehaviour
         }
     }
 
+    //Start the game
     public void StartGame()
     {
         isPlay = true;

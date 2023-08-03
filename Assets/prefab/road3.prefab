@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 911873665065601203}
   - component: {fileID: 4253785986037434134}
   - component: {fileID: 2084195316094677980}
-  - component: {fileID: 6831425794204790829}
   - component: {fileID: 6831425794204790825}
+  - component: {fileID: 7672170071718490345}
   m_Layer: 0
   m_Name: road3
   m_TagString: road
@@ -94,19 +94,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6831425794204790829
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570955397808296457}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.1986237, y: 2.7996087, z: 2.5567544}
-  m_Center: {x: 0, y: 1.3998044, z: 0}
 --- !u!114 &6831425794204790825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +106,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bb9bda43e54dd4ebb86b250f45683d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7672170071718490345
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570955397808296457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.1986237, y: 2.7996087, z: 2.5567544}
+  m_Center: {x: 0, y: 1.3998044, z: 0}
 --- !u!1001 &6831425793580485822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,8 +412,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: block
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 512c5d6507fb45c4fb27630f84b1d416, type: 3}
+      propertyPath: m_TagString
+      value: enemies
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 512c5d6507fb45c4fb27630f84b1d416, type: 3}
+--- !u!1 &5913068261810001352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 512c5d6507fb45c4fb27630f84b1d416, type: 3}
+  m_PrefabInstance: {fileID: 6831425794152032409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &519171307755143194
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913068261810001352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.19450775
+  m_Height: 0.5796838
+  m_Direction: 1
+  m_Center: {x: 0.0023560312, y: 0.29045242, z: 0.011567248}
 --- !u!4 &6432443110904696690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 512c5d6507fb45c4fb27630f84b1d416, type: 3}
@@ -486,12 +509,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd74be38d4af70048be86105324037fc, type: 3}
+      propertyPath: m_TagString
+      value: enemies
+      objectReference: {fileID: 0}
     - target: {fileID: 3566390031902043909, guid: cd74be38d4af70048be86105324037fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff3631b23e309614f95877e44accd133, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd74be38d4af70048be86105324037fc, type: 3}
+--- !u!1 &5913068261817871438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cd74be38d4af70048be86105324037fc, type: 3}
+  m_PrefabInstance: {fileID: 6831425794158842143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2493649888040082480
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913068261817871438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.053899392
+  m_Height: 0.1681508
+  m_Direction: 1
+  m_Center: {x: -0.0028285298, y: 0.07033125, z: 0}
 --- !u!4 &6432443110864336628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd74be38d4af70048be86105324037fc, type: 3}
@@ -742,8 +788,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.040777978, y: 0.06551501, z: 0.026287453}
-  m_Center: {x: 0.0042813495, y: 0.005687216, z: 0.012685385}
+  m_Size: {x: 0.032853168, y: 0.051782124, z: 0.026287453}
+  m_Center: {x: 0.0003189502, y: 0.006685741, z: 0.012685384}
 --- !u!4 &6432443109808946508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57d5f9df8e5c7a14c95060910afd2dc2, type: 3}

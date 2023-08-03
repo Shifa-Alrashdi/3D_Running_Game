@@ -16,11 +16,15 @@ public class GameOver : MonoBehaviour
     {
         
     }
+    //Show Game over panel
     public void setup() {
         gameObject.SetActive(true);
     }
 
+    //Restart the game
     public void restart() {
         SceneManager.LoadScene("VRGame");
     }
+   
+    
 }
